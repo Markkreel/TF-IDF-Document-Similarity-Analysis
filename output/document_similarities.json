@@ -1,0 +1,19 @@
+{
+    "document_pairs": [
+        {
+            "pair": "Abstract 1 - Abstract 2",
+            "similarity": 0.3424311235224148,
+            "similarity_percentage": "34.24%"
+        },
+        {
+            "pair": "Abstract 1 - Abstract 3",
+            "similarity": 0.7506859175175385,
+            "similarity_percentage": "75.07%"
+        },
+        {
+            "pair": "Abstract 2 - Abstract 3",
+            "similarity": 0.44865687210964406,
+            "similarity_percentage": "44.87%"
+        }
+    ]
+}
