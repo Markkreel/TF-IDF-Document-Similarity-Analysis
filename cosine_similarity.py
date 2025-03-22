@@ -1,7 +1,8 @@
-from sklearn.feature_extraction.text import TfidfVectorizer
-import pandas as pd
-from sklearn.metrics.pairwise import cosine_similarity
 import json
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
 
 # Read all three abstracts
 with open("text_files/abstract_1.txt", "r", encoding="UTF-8") as file:
@@ -30,12 +31,24 @@ for i, doc_name in enumerate(["D1", "D2", "D3"]):
     )
     df.to_json(f"output/tfidf_abstract{i+1}.json")
 
-# Create similarity scores dictionary
+# Create similarity scores dictionary with percentage representation
 similarity_scores = {
     "document_pairs": [
-        {"pair": "Abstract 1 - Abstract 2", "similarity": similarity_matrix[0][1]},
-        {"pair": "Abstract 1 - Abstract 3", "similarity": similarity_matrix[0][2]},
-        {"pair": "Abstract 2 - Abstract 3", "similarity": similarity_matrix[1][2]},
+        {
+            "pair": "Abstract 1 - Abstract 2",
+            "similarity": similarity_matrix[0][1],
+            "similarity_percentage": f"{similarity_matrix[0][1] * 100:.2f}%",
+        },
+        {
+            "pair": "Abstract 1 - Abstract 3",
+            "similarity": similarity_matrix[0][2],
+            "similarity_percentage": f"{similarity_matrix[0][2] * 100:.2f}%",
+        },
+        {
+            "pair": "Abstract 2 - Abstract 3",
+            "similarity": similarity_matrix[1][2],
+            "similarity_percentage": f"{similarity_matrix[1][2] * 100:.2f}%",
+        },
     ]
 }
 
